@@ -1,0 +1,30 @@
+
+> habit-tracker@0.1.0 lint
+> eslint
+
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\app\settings\page.tsx
+  91:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\components\layout\Header.tsx
+  43:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\components\layout\Sidebar.tsx
+  11:5  warning  'LogOut' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\components\ui\ModeToggle.tsx
+  6:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\lib\AuthContext.tsx
+  63:31  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  96:27  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\lib\GamificationContext.tsx
+  56:21  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/set-state-in-effect')
+
+C:\Users\91750\OneDrive\Desktop\habit-tracker\src\lib\NotificationContext.tsx
+  3:47  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 8 problems (0 errors, 8 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
