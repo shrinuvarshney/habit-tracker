@@ -1,4 +1,4 @@
-# ✨ Habit Tracker - Build Better Routines
+# ✨ Habit Tracker SaaS - Build Better Routines
 
 A modern, privacy-focused Habit Tracker built with **Next.js 14** and **Tailwind CSS**. Designed to help you build and maintain positive habits through gamification, insightful analytics, and a beautiful, distracting-free interface.
 
@@ -33,7 +33,12 @@ A modern, privacy-focused Habit Tracker built with **Next.js 14** and **Tailwind
 - **Settings**: Manage your profile and preferences.
 - **Notifications**: In-app alerts for Level Ups, Badges, and Habit Reminders.
 
-## 🛠️ Tech Stack
+### 💼 SaaS Features (New!)
+
+- **Hybrid Auth**: Support for "Guest" (Local) and "Cloud" (SaaS) accounts.
+- **Admin Dashboard**: Secure owner-only view for business metrics (`/admin`).
+- **Feature Gating**: Premium features like AI Insights are locked for free users.
+- **Monetization**: "Upgrade to Premium" UI flows with mock Stripe integration.
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
