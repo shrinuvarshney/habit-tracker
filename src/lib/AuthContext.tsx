@@ -29,6 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const router = useRouter();
 
     const getDB = () => {
+        if (typeof window === "undefined") return {};
         try {
             return JSON.parse(localStorage.getItem("habit_users_db") || "{}");
         } catch (e) {

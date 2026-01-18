@@ -3,23 +3,26 @@
 import { Search } from "lucide-react";
 import { useAuth } from "@/lib/AuthContext";
 import { NotificationDropdown } from "@/components/ui/Notifications";
+import { useState, useEffect } from "react";
 
 export function Header() {
     const { user } = useAuth();
 
     // Get greeting based on time of day
-    const getGreeting = () => {
+    const [greeting, setGreeting] = useState("Welcome");
+
+    useEffect(() => {
         const hour = new Date().getHours();
-        if (hour < 12) return "Good morning";
-        if (hour < 18) return "Good afternoon";
-        return "Good evening";
-    };
+        if (hour < 12) setGreeting("Good morning");
+        else if (hour < 18) setGreeting("Good afternoon");
+        else setGreeting("Good evening");
+    }, []);
 
     return (
         <header className="h-20 bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-20 px-8 flex items-center justify-between transition-colors duration-300">
             <div>
                 <h2 className="text-xl font-semibold text-foreground">
-                    {getGreeting()}, {user?.name?.split(" ")[0] || "User"}! 👋
+                    {greeting}, {user?.name?.split(" ")[0] || "User"}! 👋
                 </h2>
                 <p className="text-sm text-muted-foreground">Ready for another productive day?</p>
             </div>

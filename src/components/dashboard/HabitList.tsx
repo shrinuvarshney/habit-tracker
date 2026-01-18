@@ -6,11 +6,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import confetti from "canvas-confetti";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function HabitList() {
     const { habits, toggleHabit, getHabitStatus, reorderHabits, addNote } = useHabits();
-    const today = format(new Date(), "yyyy-MM-dd");
+    // Initialize with a safe default, then update on client
+    const [today, setToday] = useState(format(new Date(), "yyyy-MM-dd"));
+
+    useEffect(() => {
+        setToday(format(new Date(), "yyyy-MM-dd"));
+    }, []);
 
     // UI State
     const [isFocusMode, setIsFocusMode] = useState(false);

@@ -3,15 +3,21 @@
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { format, subDays } from "date-fns";
 import { useHabits } from "@/lib/HabitContext";
+import { useState, useEffect } from "react";
 
 export function WeeklyChart() {
     const { habits } = useHabits();
+    const [isMounted, setIsMounted] = useState(false);
 
-    // Generate data for the last 7 days from today
-    const data = Array.from({ length: 7 }).map((_, i) => {
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // Generate data only on client
+    const data = isMounted ? Array.from({ length: 7 }).map((_, i) => {
         const date = subDays(new Date(), 6 - i);
         const dateStr = format(date, "yyyy-MM-dd");
-        const dayName = format(date, "EEE d"); // e.g. "Mon 12"
+        const dayName = format(date, "EEE d");
 
         // Calculate completion % for this day
         const totalHabits = habits.length;
@@ -21,7 +27,9 @@ export function WeeklyChart() {
         const progress = Math.round((completedCount / totalHabits) * 100);
 
         return { name: dayName, progress };
-    });
+    }) : [];
+
+    if (!isMounted) return <div className="bg-card p-6 rounded-2xl shadow-sm border border-border h-[350px] animate-pulse" />;
 
     return (
         <div className="bg-card p-6 rounded-2xl shadow-sm border border-border h-[350px]">
